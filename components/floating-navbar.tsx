@@ -9,93 +9,34 @@ import {
   IconCode,
   IconFileText,
   IconHome,
-  IconMoon,
-  IconSun,
   IconTerminal2,
 } from "@tabler/icons-react";
 import { useTerminal } from "@/context/terminal-context";
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { navbarLinks } from "@/lib/site-config";
+
+// Map icon names from config to actual icon components
+const iconMap: Record<string, React.ReactNode> = {
+  IconHome: <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+  IconCode: <IconCode className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+  IconBriefcase: <IconBriefcase className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+  IconTerminal2: <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+  IconFileText: <IconFileText className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+  IconBrandLinkedin: <IconBrandLinkedin className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+  IconBrandGithub: <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+};
 
 export default function FloatingNavbar() {
   const { toggleTerminal } = useTerminal();
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    // eslint-disable-next-line
-    setMounted(true);
-  }, []);
-
-  const links = [
-    {
-      title: "Home",
-      icon: (
-        <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
-      tooltipImage: "/tooltips/home.png",
-    },
-    {
-      title: "Skills",
-      icon: (
-        <IconCode className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#skills",
-      tooltipImage: "/tooltips/skills.png",
-    },
-    {
-      title: "Projects",
-      icon: (
-        <IconBriefcase className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#projects",
-      tooltipImage: "/tooltips/projects.png",
-    },
-    {
-      title: "Terminal",
-      icon: (
-        <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
-      tooltipImage: "/tooltips/terminal-tp.png",
-      onClick: toggleTerminal,
-    },
-    {
-      title: "Resume",
-      icon: (
-        <IconFileText className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "https://drive.google.com/file/d/1zSfrunb1rbZgpXmV-qPif9Dhz3x_H1HQ/view?usp=sharing",
-      tooltipImage: "/tooltips/resume-tp.png",
-    },
-    {
-      title: "LinkedIn",
-      icon: (
-        <IconBrandLinkedin className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "https://www.linkedin.com/in/anilsingh-ln", // Update with your actual LinkedIn URL
-      tooltipImage: "/tooltips/linkedin-tp.png",
-    },
-    {
-      title: "GitHub",
-      icon: (
-        <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "https://github.com/developeranil65",
-      tooltipImage: "/tooltips/github-tp.png"
-    },
-    {
-      title: "Theme",
-      icon: mounted && theme === 'dark' ? (
-        <IconSun className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ) : (
-        <IconMoon className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
-      onClick: () => setTheme(theme === "dark" ? "light" : "dark"),
-    },
-  ];
+  const links = navbarLinks.map((item) => ({
+    title: item.title,
+    icon: iconMap[item.iconName] ?? (
+      <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+    ),
+    href: item.href,
+    tooltipImage: item.tooltipImage,
+    ...(item.onClick === "toggleTerminal" ? { onClick: toggleTerminal } : {}),
+  }));
 
   return (
     <div className="fixed bottom-6 md:bottom-10 flex items-center justify-end md:justify-center w-full z-50 px-4 md:px-0">

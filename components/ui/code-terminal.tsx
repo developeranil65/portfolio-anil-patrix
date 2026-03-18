@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
+import { terminalConfig } from "@/lib/site-config";
 
 export const CodeTerminal = () => {
   return (
@@ -17,40 +18,40 @@ export const CodeTerminal = () => {
           <div className="w-3 h-3 rounded-full bg-yellow-500" />
           <div className="w-3 h-3 rounded-full bg-green-500" />
         </div>
-        <div className="text-xs text-neutral-500 font-mono">anil@dev-machine:~</div>
+        <div className="text-xs text-neutral-500 font-mono">
+          {terminalConfig.hostname}
+        </div>
         <div className="w-12"></div> {/* Spacer for centering */}
       </div>
 
       {/* Terminal Body */}
       <div className="p-6 font-mono text-sm md:text-base overflow-x-auto">
         <div className="flex flex-col space-y-4">
-          
-          {/* Command 1 */}
-          <div>
-            <span className="text-green-400">➜</span>{" "}
-            <span className="text-cyan-400">~</span>{" "}
-            <span className="text-neutral-300">whoami</span>
-            <p className="text-yellow-300 mt-1">"Anil Singh"</p>
-          </div>
-
-          {/* Command 2 */}
-          <div>
-            <span className="text-green-400">➜</span>{" "}
-            <span className="text-cyan-400">~</span>{" "}
-            <span className="text-yellow-400">console.log(&quot;Hello World!&quot;);</span>
-            <div className="mt-2 text-neutral-300 whitespace-pre-wrap">
-              {`{
-  "role": "Backend & DevOps Engineer",
-  "education": "B.Tech Information Technology",
-  "skills": [
-    "Node.js", "Databases", "C++",
-    "AWS", "Docker", "CICD",
-    "System Design"
-  ],
-  "current_focus": "Building Scalable Systems"
-}`}
+          {terminalConfig.commands.map((cmd, idx) => (
+            <div key={idx}>
+              <span className="text-green-400">➜</span>{" "}
+              <span className="text-cyan-400">~</span>{" "}
+              <span
+                className={
+                  idx === 0
+                    ? "text-neutral-300"
+                    : "text-yellow-400"
+                }
+              >
+                {cmd.prompt}
+              </span>
+              {/* First command output is a simple string */}
+              {idx === 0 ? (
+                <p className="text-yellow-300 mt-1">{cmd.output}</p>
+              ) : (
+                <div className="mt-2 text-neutral-300 whitespace-pre-wrap">
+                  {cmd.output}
+                </div>
+              )}
             </div>
-          </div>
+          ))}
+
+          {/* Blinking cursor */}
           <div>
             <span className="text-green-400">➜</span>{" "}
             <span className="text-cyan-400">~</span>{" "}
@@ -62,7 +63,6 @@ export const CodeTerminal = () => {
               />
             </span>
           </div>
-
         </div>
       </div>
     </motion.div>
