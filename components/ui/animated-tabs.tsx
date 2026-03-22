@@ -41,7 +41,7 @@ export const Tabs = ({
     <>
       <div
         className={cn(
-          "flex flex-wrap items-center justify-center sm:flex-nowrap sm:justify-start [perspective:1000px] relative overflow-visible no-scrollbar max-w-full w-full mb-8 gap-2",
+          "flex flex-wrap items-center justify-center sm:flex-nowrap sm:justify-center [perspective:1000px] relative overflow-visible no-scrollbar max-w-full w-full mb-8 gap-2",
           containerClassName
         )}
       >

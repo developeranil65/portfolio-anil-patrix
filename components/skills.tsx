@@ -79,16 +79,18 @@ export default function Skills() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10 py-20 overflow-hidden">
-      <div className="mb-10 text-center md:text-left">
+      <div className="mb-10 text-center">
         <h2 className="text-3xl md:text-5xl font-heading font-bold text-neutral-900 dark:text-neutral-100 mb-4">
           {skillsSection.heading}
         </h2>
-        <p className="text-neutral-600 dark:text-neutral-400 text-lg">
-            {skillsSection.subHeading}
-        </p>
+        {skillsSection.subHeading && (
+          <p className="text-neutral-600 dark:text-neutral-400 text-lg">
+              {skillsSection.subHeading}
+          </p>
+        )}
       </div>
 
-      <div className="min-h-[30rem] h-auto md:h-[30rem] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full items-start justify-start my-10">
+      <div className="min-h-[30rem] h-auto md:h-[30rem] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full items-center justify-center my-10">
         <Tabs tabs={tabs} />
       </div>
     </div>

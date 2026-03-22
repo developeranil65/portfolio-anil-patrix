@@ -9,8 +9,10 @@ import { Tooltip } from "@/components/ui/tooltip-card";
 import Experience from "@/components/experience";
 import Skills from "@/components/skills";
 import Projects from "@/components/projects";
+import WorkWithMe from "@/components/work-with-me";
+import Certifications from "@/components/certifications";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
-import { personalInfo, heroSection } from "@/lib/site-config";
+import { personalInfo, heroSection, closingQuote } from "@/lib/site-config";
 import dynamic from "next/dynamic";
 
 const HeroModel = dynamic(() => import("@/components/ui/hero-model"), {
@@ -53,7 +55,7 @@ const ProfileTooltipContent = () => {
 
 export default function Home() {
   return (
-    <div className="flex flex-col bg-black pb-40">
+    <div className="flex flex-col bg-[#191919] pb-20">
       
       {/* --- HERO SECTION --- */}
       <HeroHighlight containerClassName="h-screen">
@@ -106,7 +108,10 @@ export default function Home() {
         </motion.div>
       </HeroHighlight>
 
-      {/* ====== SPACER: Shapes between Hero and Skills ====== */}
+      {/* ====== WORK WITH ME — right after hero ====== */}
+      <WorkWithMe />
+
+      {/* ====== SPACER ====== */}
       <div className="relative h-24 md:h-32 overflow-hidden">
         <div className="absolute left-[10%] -top-8 w-[120px] h-[120px] opacity-50">
           <FloatingShape shape="octahedron" color="#818cf8" size={0.8} speed={0.4} />
@@ -118,7 +123,6 @@ export default function Home() {
 
       {/* ====== SKILLS SECTION ====== */}
       <div id="skills" className="relative">
-        {/* Floating shape — top right */}
         <div className="absolute right-4 -top-10 w-[150px] h-[150px] opacity-40 pointer-events-none hidden lg:block">
           <FloatingShape shape="icosahedron" color="#818cf8" size={1.0} speed={0.3} />
         </div>
@@ -127,7 +131,7 @@ export default function Home() {
         </SectionWrapper>
       </div>
 
-      {/* ====== SPACER: Shapes between Skills and Experience ====== */}
+      {/* ====== SPACER ====== */}
       <div className="relative h-20 md:h-28 overflow-hidden">
         <div className="absolute left-[5%] top-0 w-[90px] h-[90px] opacity-35">
           <FloatingShape shape="dodecahedron" color="#10b981" size={0.6} speed={0.5} />
@@ -139,7 +143,6 @@ export default function Home() {
 
       {/* ====== EXPERIENCE SECTION ====== */}
       <div id="experience" className="relative">
-        {/* Floating shape — bottom left */}
         <div className="absolute left-4 bottom-20 w-[130px] h-[130px] opacity-35 pointer-events-none hidden lg:block">
           <FloatingShape shape="dodecahedron" color="#10b981" size={0.8} speed={0.25} />
         </div>
@@ -148,18 +151,47 @@ export default function Home() {
         </SectionWrapper>
       </div>
 
-      {/* ====== SPACER: Shapes between Experience and Projects ====== */}
+      {/* ====== SPACER ====== */}
       <div className="relative h-16 md:h-24 overflow-hidden">
         <div className="absolute right-[12%] top-0 w-[100px] h-[100px] opacity-40">
           <FloatingShape shape="octahedron" color="#f59e0b" size={0.6} speed={0.45} />
-        </div>
-        <div className="absolute left-[20%] -top-6 w-[80px] h-[80px] opacity-30 hidden md:block">
-          <FloatingShape shape="tetrahedron" color="#ec4899" size={0.5} speed={0.55} />
         </div>
       </div>
 
       {/* ====== PROJECTS SECTION ====== */}
       <Projects />
+
+      {/* ====== SPACER ====== */}
+      <div className="relative h-16 md:h-24 overflow-hidden">
+        <div className="absolute left-[8%] top-0 w-[90px] h-[90px] opacity-35">
+          <FloatingShape shape="dodecahedron" color="#6366f1" size={0.5} speed={0.4} />
+        </div>
+        <div className="absolute right-[20%] -top-6 w-[80px] h-[80px] opacity-30 hidden md:block">
+          <FloatingShape shape="tetrahedron" color="#ec4899" size={0.5} speed={0.55} />
+        </div>
+      </div>
+
+      {/* ====== CERTIFICATIONS SECTION (moved to last) ====== */}
+      <Certifications />
+
+      {/* ====== CLOSING QUOTE ====== */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.8 }}
+        className="max-w-3xl mx-auto text-center px-6 py-16"
+      >
+        <blockquote className="relative">
+          <span className="absolute -top-8 -left-4 text-6xl text-indigo-500/20 font-serif select-none">&ldquo;</span>
+          <p className="text-xl md:text-2xl font-heading font-light text-neutral-300 leading-relaxed italic">
+            {closingQuote.text}
+          </p>
+          <footer className="mt-4 text-sm text-neutral-500">
+            — {closingQuote.author}
+          </footer>
+        </blockquote>
+      </motion.div>
       
     </div>
   );

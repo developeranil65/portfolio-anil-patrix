@@ -43,8 +43,8 @@ export default function Experience() {
     title: entry.title,
     content: (
       <div>
-        <div className="flex flex-col gap-2 mb-4">
-          <h3 className="text-2xl font-heading font-bold text-zinc-900 dark:text-zinc-100">
+        <div className="flex flex-col gap-2 mb-3">
+          <h3 className="text-xl md:text-2xl font-heading font-bold text-zinc-900 dark:text-zinc-100">
             {entry.heading}
           </h3>
           {entry.subtitle && (
