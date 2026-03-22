@@ -71,12 +71,14 @@ export default function FloatingNavbar() {
       </Link>
 
       {/* Bottom floating dock */}
-      <div className="fixed bottom-6 md:bottom-10 flex items-center justify-end md:justify-center w-full z-50 px-4 md:px-0">
-        <FloatingDock
-          mobileClassName=""
-          desktopClassName="w-fit hidden md:flex items-end gap-4 px-6 justify-center pb-3"
-          items={links}
-        />
+      <div className="fixed bottom-6 md:bottom-10 flex items-center justify-center w-full z-50 px-4 md:px-0 pointer-events-none">
+        <div className="pointer-events-auto">
+          <FloatingDock
+            mobileClassName=""
+            desktopClassName="w-fit hidden md:flex items-end gap-4 px-6 justify-center pb-3"
+            items={links}
+          />
+        </div>
       </div>
     </>
   );

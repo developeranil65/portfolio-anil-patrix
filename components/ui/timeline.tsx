@@ -65,7 +65,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             className="flex justify-start pt-8 md:pt-14 md:gap-8"
           >
             <div className="flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-[10rem] lg:max-w-xs md:w-full">
-              <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-[#191919] flex items-center justify-center">
+              <div className="h-10 absolute left-0 md:left-3 w-10 rounded-full bg-white dark:bg-[#191919] flex items-center justify-center">
                 <TimelineDot />
               </div>
               <h3 className="hidden md:block text-xl md:pl-16 md:text-2xl font-bold text-neutral-500 dark:text-neutral-500">
@@ -73,8 +73,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               </h3>
             </div>
 
-            <div className="relative pl-20 pr-4 md:pl-4 w-full">
-              <h3 className="md:hidden block text-xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500">
+            <div className="relative pl-12 md:pl-20 pr-4 md:pr-4 w-full">
+              <h3 className="md:hidden block text-xl mb-6 text-left font-bold text-neutral-500 dark:text-neutral-500">
                 {item.title}
               </h3>
               {item.content}{" "}

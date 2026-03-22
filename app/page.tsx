@@ -55,7 +55,7 @@ const ProfileTooltipContent = () => {
 
 export default function Home() {
   return (
-    <div className="flex flex-col bg-[#191919] pb-20">
+    <div className="flex flex-col bg-[#191919] pb-20 overflow-x-hidden min-h-screen">
       
       {/* --- HERO SECTION --- */}
       <HeroHighlight containerClassName="h-screen">
@@ -88,12 +88,12 @@ export default function Home() {
               </Tooltip>
             </div>
 
-            <div className="text-2xl md:text-3xl lg:text-5xl font-heading font-bold text-neutral-400 leading-relaxed lg:leading-snug">
+            <div className="text-xl md:text-3xl lg:text-5xl font-heading font-bold text-neutral-400 leading-snug md:leading-relaxed lg:leading-snug">
               {heroSection.headline}
               <div className="block mt-2 text-2xl md:text-3xl lg:text-5xl">
                 <FlipWords words={heroSection.flipWords} className="p-0!" />
               </div>
-              <span className="block mt-4 text-lg md:text-2xl text-neutral-500 leading-relaxed">
+              <span className="block mt-4 text-base md:text-2xl text-neutral-500 leading-relaxed max-w-[100vw] break-words">
                 {heroSection.subHeadline}
               </span>
             </div>
@@ -152,7 +152,7 @@ export default function Home() {
       </div>
 
       {/* ====== SPACER ====== */}
-      <div className="relative h-16 md:h-24 overflow-hidden">
+      <div className="relative h-10 md:h-24 overflow-hidden">
         <div className="absolute right-[12%] top-0 w-[100px] h-[100px] opacity-40">
           <FloatingShape shape="octahedron" color="#f59e0b" size={0.6} speed={0.45} />
         </div>
@@ -162,7 +162,7 @@ export default function Home() {
       <Projects />
 
       {/* ====== SPACER ====== */}
-      <div className="relative h-16 md:h-24 overflow-hidden">
+      <div className="relative h-10 md:h-24 overflow-hidden">
         <div className="absolute left-[8%] top-0 w-[90px] h-[90px] opacity-35">
           <FloatingShape shape="dodecahedron" color="#6366f1" size={0.5} speed={0.4} />
         </div>
@@ -180,7 +180,7 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.8 }}
-        className="max-w-3xl mx-auto text-center px-6 py-16"
+        className="max-w-3xl mx-auto text-center px-6 py-10 md:py-16"
       >
         <blockquote className="relative">
           <span className="absolute -top-8 -left-4 text-6xl text-indigo-500/20 font-serif select-none">&ldquo;</span>

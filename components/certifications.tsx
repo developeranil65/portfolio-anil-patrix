@@ -32,7 +32,7 @@ export default function Certifications() {
         </div>
 
         {/* 4-column grid — centered */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-start justify-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 items-start justify-items-center">
           <AnimatePresence>
             {visible.map((cert, idx) => (
               <motion.div
