@@ -1,12 +1,4 @@
-// ============================================================================
-// SITE CONFIGURATION — Edit this file to customize the entire portfolio.
-// All sections (Hero, Skills, Projects, Experience, Navbar, Terminal, Metadata)
-// are driven from this single file.
-// ============================================================================
 
-// ---------------------------------------------------------------------------
-// SITE METADATA (used in <head> and SEO)
-// ---------------------------------------------------------------------------
 export const siteMetadata = {
   title: "anil > patrix",
   description:
