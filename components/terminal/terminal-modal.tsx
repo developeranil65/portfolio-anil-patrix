@@ -78,13 +78,16 @@ export const TerminalModal = () => {
               Hi, I&apos;m <span className="text-green-400 font-bold">Anil Singh</span>.
             </p>
             <p>
-              I am a Full Stack Developer & DevOps Enthusiast passionate about
-              building scalable infrastructure and automated systems.
+              I am a Backend &amp; DevOps Engineer passionate about
+              building scalable APIs with Node.js &amp; AWS Infrastructure.
             </p>
             <p>
-              Currently focusing on <span className="text-yellow-300">Kubernetes</span>,{" "}
+              Currently focusing on <span className="text-yellow-300">Building Scalable Systems</span>,{" "}
               <span className="text-yellow-300">System Design</span>, and{" "}
-              <span className="text-yellow-300">Cloud Architecture</span>.
+              <span className="text-yellow-300">Cloud Infrastructure</span>.
+            </p>
+            <p>
+              Education: <span className="text-yellow-300">B.Tech Information Technology</span>
             </p>
           </div>
         );
@@ -95,9 +98,10 @@ export const TerminalModal = () => {
           <div className="space-y-2">
              <p className="text-yellow-400">My Projects (type &apos;cat [project_name]&apos; for details):</p>
              <ul className="list-disc list-inside text-neutral-300 space-y-1">
-               <li><span className="text-cyan-400">student-college-app</span> - College Application Form</li>
-               <li><span className="text-cyan-400">3d-delivery-frontend</span> - 3D Logistics App</li>
-               <li><span className="text-cyan-400">portfolio</span> - You are here</li>
+               <li><span className="text-cyan-400">opus</span> - Distributed, horizontally scalable polling system with sub-50ms latency</li>
+               <li><span className="text-cyan-400">finledger</span> - ACID-compliant double-entry ledger with transactional idempotency</li>
+               <li><span className="text-cyan-400">keyvaultx</span> - Secure secret management backend with AES-256 encryption</li>
+               <li><span className="text-cyan-400">avoidesse</span> - Real-time disease surveillance system with ML-powered outbreak prediction</li>
              </ul>
           </div>
         );
@@ -107,11 +111,12 @@ export const TerminalModal = () => {
           <div className="space-y-1 text-neutral-300">
             <p className="text-yellow-400 mb-2">Technical Skills:</p>
             <div className="grid grid-cols-2 gap-x-8 gap-y-1">
-              <div><span className="text-purple-400">Languages:</span> JavaScript, TypeScript, C++, Python</div>
-              <div><span className="text-purple-400">Frontend:</span> React, Next.js, TailwindCSS</div>
-              <div><span className="text-purple-400">Backend:</span> Node.js, Express, Postgres, MongoDB</div>
-              <div><span className="text-purple-400">DevOps:</span> Docker, AWS, GitHub Actions, Linux</div>
+              <div><span className="text-purple-400">Languages:</span> JavaScript, TypeScript, C++, Node.js</div>
+              <div><span className="text-purple-400">Frameworks:</span> Express.js, Redis</div>
+              <div><span className="text-purple-400">Databases:</span> PostgreSQL, MongoDB, Redis</div>
+              <div><span className="text-purple-400">DevOps:</span> Docker, Nginx, AWS, Git, Linux</div>
             </div>
+            <p className="mt-2"><span className="text-purple-400">Concepts:</span> HTTP &amp; REST, API Architecture, Authentication, Database Design, Caching Strategies, Async Processing, System Scalability, Cloud Security, Observability</p>
           </div>
         );
         break;
@@ -121,13 +126,13 @@ export const TerminalModal = () => {
           <div className="text-neutral-300">
             <p>You can reach me at:</p>
             <p className="mt-1">
-               Email: <a href="mailto:anilsingh.portfolio@gmail.com" className="text-blue-400 underline hover:text-blue-300">anil@example.com</a>
-            </p>
-            <p>
                LinkedIn: <a href="https://www.linkedin.com/in/anilsingh-ln" target="_blank" className="text-blue-400 underline hover:text-blue-300">linkedin.com/in/anilsingh-ln</a>
             </p>
             <p>
                GitHub: <a href="https://github.com/developeranil65" target="_blank" className="text-blue-400 underline hover:text-blue-300">github.com/developeranil65</a>
+            </p>
+            <p>
+               Resume: <a href="https://drive.google.com/file/d/1zSfrunb1rbZgpXmV-qPif9Dhz3x_H1HQ/view?usp=sharing" target="_blank" className="text-blue-400 underline hover:text-blue-300">View Resume</a>
             </p>
           </div>
         );
@@ -152,12 +157,46 @@ export const TerminalModal = () => {
         // Check for 'cat' command
         if (cleanCmd.startsWith("cat ")) {
             const file = cleanCmd.substring(4).trim();
-            if (file === "student-college-app") {
-                output = "A comprehensive web form for college student applications collecting technical skills.";
-            } else if (file === "3d-delivery-frontend") {
-                output = "Modern frontend application for a delivery system featuring 3D components and RBAC.";
-            } else if (file === "portfolio") {
-                 output = "This very website! Built with Next.js, Tailwind, and Framer Motion.";
+            if (file === "opus") {
+                output = (
+                  <div className="text-neutral-300 space-y-1">
+                    <p className="text-green-400 font-bold">Opus – Polling App</p>
+                    <p>A distributed, horizontally scalable polling system with sub-50ms latency.</p>
+                    <p><span className="text-purple-400">Stack:</span> Node.js, Docker, Nginx, Redis, PostgreSQL</p>
+                    <p><span className="text-purple-400">Role:</span> Backend Engineer, DevOps Engineer</p>
+                    <p><span className="text-blue-400">→</span> <a href="https://github.com/developeranil65/opus.dev/tree/dev" target="_blank" className="text-blue-400 underline hover:text-blue-300">View on GitHub</a></p>
+                  </div>
+                );
+            } else if (file === "finledger") {
+                output = (
+                  <div className="text-neutral-300 space-y-1">
+                    <p className="text-green-400 font-bold">FinLedger</p>
+                    <p>A high-integrity, ACID-compliant double-entry ledger system with transactional idempotency and financial auditability.</p>
+                    <p><span className="text-purple-400">Stack:</span> Node.js, TypeScript, MongoDB, Redis, Docker</p>
+                    <p><span className="text-purple-400">Role:</span> Backend Engineer, Fullstack Engineer</p>
+                    <p><span className="text-blue-400">→</span> <a href="https://github.com/developeranil65/FinLedger-Banking-System" target="_blank" className="text-blue-400 underline hover:text-blue-300">View on GitHub</a></p>
+                  </div>
+                );
+            } else if (file === "keyvaultx") {
+                output = (
+                  <div className="text-neutral-300 space-y-1">
+                    <p className="text-green-400 font-bold">KeyVaultX</p>
+                    <p>A secure secret management backend with AES-256 encryption and hybrid auth.</p>
+                    <p><span className="text-purple-400">Stack:</span> Node.js, TypeScript, PostgreSQL, Docker</p>
+                    <p><span className="text-purple-400">Role:</span> Backend Engineer, Security Engineer</p>
+                    <p><span className="text-blue-400">→</span> <a href="https://github.com/developeranil65/keyvaultx.secure" target="_blank" className="text-blue-400 underline hover:text-blue-300">View on GitHub</a></p>
+                  </div>
+                );
+            } else if (file === "avoidesse") {
+                output = (
+                  <div className="text-neutral-300 space-y-1">
+                    <p className="text-green-400 font-bold">AvoidEsse</p>
+                    <p>An end-to-end disease surveillance system integrating real-time data ingestion with ML for outbreak prediction.</p>
+                    <p><span className="text-purple-400">Stack:</span> Node.js, Python, PostgreSQL, Socket.io</p>
+                    <p><span className="text-purple-400">Role:</span> Backend Engineer, ML Engineer, Fullstack Engineer</p>
+                    <p><span className="text-blue-400">→</span> <a href="https://github.com/developeranil65/SIH_backend" target="_blank" className="text-blue-400 underline hover:text-blue-300">View on GitHub</a></p>
+                  </div>
+                );
             } else {
                  output = <span className="text-red-400">cat: {file}: No such file or directory</span>;
             }
